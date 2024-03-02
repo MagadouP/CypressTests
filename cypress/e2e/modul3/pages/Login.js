@@ -1,7 +1,7 @@
 class LoginPage {
     constructor() {
         this.url = 'https://www.edu.goit.global/account/login';
-        this.emailInput = 'input[name = "email]';
+        this.emailInput = 'input[name = "email"]';
         this.passwordInput = 'input[name = "password"]';
         this.loginButton = 'button[type = "submit"]';
     }
