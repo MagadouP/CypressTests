@@ -1,7 +1,7 @@
 class HomePage {
     constructor() {
         this.courseHomepageWidget = '[id="go-to-the-course-homepage-widget"]';
-        this.nextButton = 'button[class="next-7afvtf elphyiqy6"]';
+        this.nextButton = 'button[class="next-7afvtf e1phyiqy6"]';
         this.logOutOption = 'Log out';
     }
 
