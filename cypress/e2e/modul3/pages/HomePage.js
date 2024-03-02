@@ -14,7 +14,7 @@ class HomePage {
     }
 
     logOut() {
-        cy.get(this.logOutOption).click();
+        cy.contains(this.logOutOption).click();
     }
 }
 
