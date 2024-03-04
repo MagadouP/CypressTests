@@ -15,7 +15,7 @@ describe('HW03_modul3_User can visit GoIT page', () => {
 
     it('successfully login to the GoIT page as admin', () => {
         LoginPage.logInUser('testowyqa@qa.team', 'QA!automation-1');
-        HomePage.goToCourseHomepage();
+        HomePage.goToCourseHomepageWidget();
         HomePage.proceedToNext();
         HomePage.logOut();
 });
