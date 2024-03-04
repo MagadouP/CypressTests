@@ -1,5 +1,5 @@
-import LoginPage from '../pages/Login';
-import HomePage from '../pages/HomePage';
+import LoginPage from '../../../pages/LoginPage';
+import HomePage from '../../../pages/HomePage';
 
 describe('HW03_modul3_User can visit GoIT page', () => {
     beforeEach('go to page', () => {
