@@ -4,8 +4,7 @@
   "description": "",
   "main": "spec.hw02-modul2.cy.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "test:performance": "artillery run artillery/hw07_test.yml"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
