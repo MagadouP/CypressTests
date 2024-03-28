@@ -1,0 +1,44 @@
+config:
+  target: "https://https://api.artic.edu/docs/api"
+
+  phases:
+    - duration: 1
+      arrivalRate: 1
+      name: Artillery First Test
+    - duration: 60
+      arrivalRate: 2
+      name: Load Test 1
+  payload:
+    -
+      path: "data1.csv"
+      fields:
+        - "name"
+        - "password"
+      order: sequence 
+  plugins:
+    ensure: {}
+  ensure:
+    thresholds:
+      - http.response_time.p95: 1000
+    conditions:
+      - expression: vusers.failed == 0
+      - expression: "http.request_rate >= 2"
+      - expression: "http.response_time.max < 600"
+      - expression: http.codes.200 > 0
+scenarios:
+  - name: Getting a resource
+    flow:
+      - get:
+          url: "{{ target }}/get?param1={{ **name** }}"
+      - post:
+          url: "{{ target }}/post?param2={{ **password** }}"
+          json:
+            username: "{{ name }}"
+            password: "{{ password }}"
+          capture:
+            - json: "$.json"
+              as: "request_body"
+            - json: "$.headers.Host"
+              as: "host"
+      - log: "Json value from response is: {{request_body}}"
+      - log: "Host value from response is: {{host}}"
