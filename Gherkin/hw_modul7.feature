@@ -1,4 +1,4 @@
-Feature:    Wyszukiwanie produktu w sklepie erakiety.com, umieszczenie w koszyku i sprawdzenie zawartości koszyka
+Feature:    Wyszukiwanie produktu w sklepie erakiety.com, umieszczenie w koszyku i zakup
   Given     Użytkownik akceptuje ciasteczka i przechodzi na stronę główną erakiety.com
     And     Użytkownik widzi pole wyszukiwarki produktów.
    
@@ -26,4 +26,9 @@ Scenario: Zatwierdzenie zawartości koszyka i przejście do procesu zamówienia.
     Given Użytkownik znajduje się na stronie koszyka.
     When  Użytkownik akceptuje zawartość koszyka poprzez naciśnięcie przycisku "Przejdź dalej".
     Then  System przenosi użytkownika na stronę, na której można wybrać zamówić produkt bez lub z rejestracją użytkownika.
+    And   Użytkownik nie posiada konta i nie chce się rejestrować, więc uzupełnia dane dotyczące kontaktu i dostawy 
+    And   Użytkownik wybiera formę dostawy i sposób płatności i klika "Przejdź dalej"
+    And   Użytkownik widzi podsumowanie zamówienia, wszystkie formy, które wybrał, akceptuje regulamin sklepu, a następnie klika "Zamawiam z obowiązkiem zapłaty"
+    And   Użytkownik dokonuje płatności.
+    Then  Transakcja zostaje przyjęta do realizacji, a Użytkownik zostaje poinformowany o terminie dostawy.
 
